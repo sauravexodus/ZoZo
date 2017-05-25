@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class GithubIssueTableViewCell: UITableViewCell {
     
@@ -18,8 +19,14 @@ class GithubIssueTableViewCell: UITableViewCell {
     
     //MARK:- Instance methods
     
-    func configure(){
-        
+    func configure(with issue: GithubIssue){
+        self.lTitleLabel.text = issue.title
+        self.lUsernameLabel.text = issue.user.username
+        self.lDescriptionLabel.text = issue.body
+        self.lIssueTagLabel.text = issue.state?.uppercased()
+        if(issue.user.avatar != nil){
+            self.ivProfileImageView.kf.setImage(with: URL(string: issue.user.avatar!))
+        }
     }
     
 

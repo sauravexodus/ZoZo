@@ -20,7 +20,7 @@ struct IssueFetcher {
     
     func fetchIssues() -> Observable<[GithubIssue]>{
         return pathName.observeOn(MainScheduler.instance).flatMapLatest { path -> Observable<[GithubIssue]> in
-            if(path.length > 3 && path.contains("\\")){
+            if(path.length > 3 && path.contains("/")){
                 return self.provider.request(Github.issues(repositoryFullName: path)).debug().mapArray(type: GithubIssue.self)
             }else{
                 return Observable.just([])

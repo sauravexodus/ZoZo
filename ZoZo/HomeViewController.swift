@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import Moya
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController {
     
     @IBOutlet var tvTableView: UITableView!
     @IBOutlet var tfSearchTextField: UITextField!
@@ -21,13 +21,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var searchQuery : Observable<String> {
         return tfSearchTextField.rx.text.orEmpty.debounce(0.5, scheduler: MainScheduler.instance).distinctUntilChanged()
     }
+    var githubIssuesFetcher : IssueFetcher!
 
     //MARK:- Lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        self.setupRx()
     }
     
     //MARK:- Instance methods
@@ -35,28 +36,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func setupRx(){
         self.issueProvider = RxMoyaProvider<Github>()
         
+        self.githubIssuesFetcher = IssueFetcher(provider: self.issueProvider, pathName: self.searchQuery)
+        
+        self.githubIssuesFetcher.fetchIssues().bind(to: self.tvTableView.rx.items){ tableView, row, item in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GithubIssueTableViewCell") as! GithubIssueTableViewCell
+            cell.configure(with: item)
+            return cell
+        }.addDisposableTo(self.disposeBag)
+        
         self.tvTableView.rx.itemSelected.subscribe(onNext: { indexPath in
             if(self.tfSearchTextField.isFirstResponder){
                 self.view.endEditing(true)
             }
         }).addDisposableTo(self.disposeBag)
-    }
-    
-    //MARK:- Table view data sources and delegates
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GithubIssueTableViewCell", for: indexPath) as! GithubIssueTableViewCell
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    //MARK:- UITextfield actions
-    
-    @IBAction func tfActionSearchChanged(_ sender: Any) {
-        
     }
 
 }

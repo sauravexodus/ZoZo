@@ -36,7 +36,7 @@ extension Github: TargetType {
     var sampleData: Data {
         switch self {
         case .issues(_):
-            return "{\"id\": 132942471, \"number\": 405, \"title\": \"Updates example with fix to String extension by changing to Optional\", \"body\": \"Fix it pls.\"}".data(using: .utf8)!
+            return "[{\"title\": \"Cancel concurrency issue\", \"user\": { \"login\": \"davidgyavol\", \"id\": 28946670, \"avatar_url\": \"s2.githubusercontent.com\" }, \"state\": \"open\", \"body\": \"We found an issue in the way `cancel()` is called on the `Call` after `onResponse()` is called on the callback:\\r\\n\\r\\nEven after `onResponse` was called on our callback on a different thread,` cancel()` is still called from the main thread due to its concurrency nature - therefore `cancel()` calls `cancel()` on the `RetryAndFollowUpInterceptor` which calls `cancel()` on the `StreamAllocation` which we believe gets us in a state where we have a successful response with no body - `response.body().string()` returns null.\\r\\n\\r\\nWe believe that a fix for this might be to do a `return` in the `cancel()` method on the `RealCall` class if the `AsyncCall` delivered response to the callback.\"}]".data(using: .utf8)!
         }
     }
     var task: Task {
