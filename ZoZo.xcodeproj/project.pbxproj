@@ -7,17 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47D8FBDAC69FB35062C32CF7 /* Pods_ZoZo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55175C5C37F9530A5D3DB2F4 /* Pods_ZoZo.framework */; };
+		E038317E1ED730CF00913FA5 /* GithubIssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E038317D1ED730CF00913FA5 /* GithubIssueTableViewCell.swift */; };
+		E03831801ED7310900913FA5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E038317F1ED7310900913FA5 /* HomeViewController.swift */; };
 		E042E99C1ED71ED800F631B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E042E99B1ED71ED800F631B6 /* AppDelegate.swift */; };
-		E042E99E1ED71ED800F631B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E042E99D1ED71ED800F631B6 /* ViewController.swift */; };
 		E042E9A11ED71ED800F631B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E042E99F1ED71ED800F631B6 /* Main.storyboard */; };
 		E042E9A31ED71ED800F631B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E042E9A21ED71ED800F631B6 /* Assets.xcassets */; };
 		E042E9A61ED71ED800F631B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E042E9A41ED71ED800F631B6 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54E4C8773C237C74FBA8FD87 /* Pods-ZoZo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZoZo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZoZo/Pods-ZoZo.release.xcconfig"; sourceTree = "<group>"; };
+		55175C5C37F9530A5D3DB2F4 /* Pods_ZoZo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZoZo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		848C5BF77EFC54BEC6A7E0D9 /* Pods-ZoZo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZoZo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZoZo/Pods-ZoZo.debug.xcconfig"; sourceTree = "<group>"; };
+		E038317D1ED730CF00913FA5 /* GithubIssueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssueTableViewCell.swift; sourceTree = "<group>"; };
+		E038317F1ED7310900913FA5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E042E9981ED71ED800F631B6 /* ZoZo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZoZo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E042E99B1ED71ED800F631B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E042E99D1ED71ED800F631B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E042E9A01ED71ED800F631B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E042E9A21ED71ED800F631B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E042E9A51ED71ED800F631B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -29,17 +35,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47D8FBDAC69FB35062C32CF7 /* Pods_ZoZo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0102D441A0163861EEE89F3E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				848C5BF77EFC54BEC6A7E0D9 /* Pods-ZoZo.debug.xcconfig */,
+				54E4C8773C237C74FBA8FD87 /* Pods-ZoZo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9CCCCD25341E53F4E81EF960 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				55175C5C37F9530A5D3DB2F4 /* Pods_ZoZo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E038317C1ED730B000913FA5 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				E038317D1ED730CF00913FA5 /* GithubIssueTableViewCell.swift */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
 		E042E98F1ED71ED800F631B6 = {
 			isa = PBXGroup;
 			children = (
 				E042E99A1ED71ED800F631B6 /* ZoZo */,
 				E042E9991ED71ED800F631B6 /* Products */,
+				0102D441A0163861EEE89F3E /* Pods */,
+				9CCCCD25341E53F4E81EF960 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,12 +88,13 @@
 		E042E99A1ED71ED800F631B6 /* ZoZo */ = {
 			isa = PBXGroup;
 			children = (
+				E038317C1ED730B000913FA5 /* TableViewCells */,
 				E042E99B1ED71ED800F631B6 /* AppDelegate.swift */,
-				E042E99D1ED71ED800F631B6 /* ViewController.swift */,
 				E042E99F1ED71ED800F631B6 /* Main.storyboard */,
 				E042E9A21ED71ED800F631B6 /* Assets.xcassets */,
 				E042E9A41ED71ED800F631B6 /* LaunchScreen.storyboard */,
 				E042E9A71ED71ED800F631B6 /* Info.plist */,
+				E038317F1ED7310900913FA5 /* HomeViewController.swift */,
 			);
 			path = ZoZo;
 			sourceTree = "<group>";
@@ -71,9 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E042E9AA1ED71ED800F631B6 /* Build configuration list for PBXNativeTarget "ZoZo" */;
 			buildPhases = (
+				680BBF0409E286FE60C93D4B /* [CP] Check Pods Manifest.lock */,
 				E042E9941ED71ED800F631B6 /* Sources */,
 				E042E9951ED71ED800F631B6 /* Frameworks */,
 				E042E9961ED71ED800F631B6 /* Resources */,
+				4FC63C25B443723C96B486BD /* [CP] Embed Pods Frameworks */,
+				018B3112E19A68904FC6569E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,13 +170,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		018B3112E19A68904FC6569E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZoZo/Pods-ZoZo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4FC63C25B443723C96B486BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZoZo/Pods-ZoZo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		680BBF0409E286FE60C93D4B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E042E9941ED71ED800F631B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E042E99E1ED71ED800F631B6 /* ViewController.swift in Sources */,
+				E038317E1ED730CF00913FA5 /* GithubIssueTableViewCell.swift in Sources */,
 				E042E99C1ED71ED800F631B6 /* AppDelegate.swift in Sources */,
+				E03831801ED7310900913FA5 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +346,7 @@
 		};
 		E042E9AB1ED71ED800F631B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 848C5BF77EFC54BEC6A7E0D9 /* Pods-ZoZo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EC3AZW8X4Z;
@@ -272,6 +360,7 @@
 		};
 		E042E9AC1ED71ED800F631B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54E4C8773C237C74FBA8FD87 /* Pods-ZoZo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EC3AZW8X4Z;
@@ -302,6 +391,7 @@
 				E042E9AC1ED71ED800F631B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
