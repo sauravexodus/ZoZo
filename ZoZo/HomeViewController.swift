@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet var tvTableView: UITableView!
     @IBOutlet var tfSearchTextField: UITextField!
-    @IBOutlet var aiProgressIndicator: UIActivityIndicatorView!
+    @IBOutlet var vErrorView: UIView!
     
     let disposeBag = DisposeBag()
     var issueProvider : RxMoyaProvider<Github>!
@@ -42,17 +42,21 @@ class HomeViewController: UIViewController {
         self.githubIssuesFetcher = IssueFetcher(provider: self.issueProvider, pathName: self.searchQuery)
         
         self.githubIssuesFetcher.fetchIssues().do(onNext: { (issues) in
-            
+            if(issues.count == 0){
+                self.vErrorView.isHidden = false
+            }else{
+                self.vErrorView.isHidden = true
+            }
         }, onError: { (error) in
-            self.aiProgressIndicator.stopAnimating()
-        }, onCompleted: { 
-            
+            self.vErrorView.isHidden = false
+        }, onCompleted: {
+
         }, onSubscribe: {
             
         }, onSubscribed: { 
-            self.aiProgressIndicator.startAnimating()
-        }, onDispose: { 
-            self.aiProgressIndicator.stopAnimating()
+
+        }, onDispose: {
+            
         }).bind(to: self.tvTableView.rx.items){ tableView, row, item in
             let cell = tableView.dequeueReusableCell(withIdentifier: "GithubIssueTableViewCell") as! GithubIssueTableViewCell
             cell.configure(with: item)

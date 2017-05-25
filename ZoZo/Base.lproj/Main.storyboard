@@ -149,16 +149,41 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6Oi-0k-AQd">
-                                <rect key="frame" x="177" y="180" width="20" height="20"/>
-                            </activityIndicatorView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yj1-89-B3k">
+                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pc5-4j-9Ye">
+                                        <rect key="frame" x="161" y="139" width="53" height="309"/>
+                                        <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="200"/>
+                                        <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please try refining your search query. The correct format is user/repo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z74-60-K7U">
+                                        <rect key="frame" x="32" y="358.5" width="311" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="pc5-4j-9Ye" firstAttribute="centerY" secondItem="Yj1-89-B3k" secondAttribute="centerY" id="3r1-YJ-LB4"/>
+                                    <constraint firstItem="Z74-60-K7U" firstAttribute="centerX" secondItem="Yj1-89-B3k" secondAttribute="centerX" id="iuR-sh-i9w"/>
+                                    <constraint firstAttribute="trailing" secondItem="Z74-60-K7U" secondAttribute="trailing" constant="32" id="lAf-iY-FPg"/>
+                                    <constraint firstItem="pc5-4j-9Ye" firstAttribute="centerX" secondItem="Yj1-89-B3k" secondAttribute="centerX" id="oKe-Cc-wsT"/>
+                                    <constraint firstItem="Z74-60-K7U" firstAttribute="centerY" secondItem="Yj1-89-B3k" secondAttribute="centerY" constant="80" id="vxZ-JK-YbM"/>
+                                    <constraint firstItem="Z74-60-K7U" firstAttribute="leading" secondItem="Yj1-89-B3k" secondAttribute="leading" constant="32" id="yRk-nY-Yaj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9HX-T6-Hha" firstAttribute="top" secondItem="V1n-5F-M18" secondAttribute="bottom" id="3lg-kI-aaZ"/>
-                            <constraint firstItem="6Oi-0k-AQd" firstAttribute="top" secondItem="V1n-5F-M18" secondAttribute="bottom" constant="100" id="7lX-Ux-w9D"/>
-                            <constraint firstItem="6Oi-0k-AQd" firstAttribute="centerX" secondItem="2UW-Tb-hYR" secondAttribute="centerX" id="DpA-58-6RS"/>
+                            <constraint firstItem="Yj1-89-B3k" firstAttribute="top" secondItem="V1n-5F-M18" secondAttribute="bottom" id="EQu-Sd-w5l"/>
+                            <constraint firstItem="Yj1-89-B3k" firstAttribute="leading" secondItem="2UW-Tb-hYR" secondAttribute="leading" id="HrA-JU-rlb"/>
+                            <constraint firstItem="8AK-Q8-fNZ" firstAttribute="top" secondItem="Yj1-89-B3k" secondAttribute="bottom" id="M0N-M3-iQP"/>
                             <constraint firstAttribute="trailing" secondItem="9HX-T6-Hha" secondAttribute="trailing" id="db5-X4-AKi"/>
+                            <constraint firstAttribute="trailing" secondItem="Yj1-89-B3k" secondAttribute="trailing" id="ejA-To-DMf"/>
                             <constraint firstItem="V1n-5F-M18" firstAttribute="top" secondItem="2UW-Tb-hYR" secondAttribute="top" id="gRb-hc-v5A"/>
                             <constraint firstAttribute="trailing" secondItem="V1n-5F-M18" secondAttribute="trailing" id="kXK-K6-avQ"/>
                             <constraint firstItem="V1n-5F-M18" firstAttribute="leading" secondItem="2UW-Tb-hYR" secondAttribute="leading" id="vwq-58-znt"/>
@@ -168,9 +193,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="YYK-mQ-zid"/>
                     <connections>
-                        <outlet property="aiProgressIndicator" destination="6Oi-0k-AQd" id="0tt-T0-aV3"/>
                         <outlet property="tfSearchTextField" destination="12d-2F-Om7" id="Jwe-Aa-KQT"/>
                         <outlet property="tvTableView" destination="9HX-T6-Hha" id="2iF-yg-7AW"/>
+                        <outlet property="vErrorView" destination="Yj1-89-B3k" id="foQ-va-b4p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8oj-rf-IuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
