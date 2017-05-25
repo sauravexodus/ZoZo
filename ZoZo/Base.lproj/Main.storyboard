@@ -45,6 +45,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="tfActionSearchChanged:" destination="WhY-Bc-ZNE" eventType="editingChanged" id="KBA-Tx-13S"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.69019607839999997" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -59,7 +62,7 @@
                                 <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="153" id="zUx-Hj-JR1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GithubIssueTableViewCell" rowHeight="153" id="zUx-Hj-JR1" customClass="GithubIssueTableViewCell" customModule="ZoZo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="153"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zUx-Hj-JR1" id="xgT-Au-nJz">
@@ -85,7 +88,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="100" verticalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCo-i0-z0S">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="100" verticalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCo-i0-z0S">
                                                     <rect key="frame" x="72" y="64.5" width="287" height="72"/>
                                                     <string key="text">Senectus turpis explicabo aliquet potenti leo scelerisque wisi sollicitudin accumsan, turpis diamlorem, inventore exercitationem amet omnis quasi, lacinia! Orci autem, sapiente, similique nemo </string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -128,6 +131,13 @@
                                                 <constraint firstAttribute="bottom" secondItem="bCo-i0-z0S" secondAttribute="bottom" constant="16" id="w5r-W6-Lr6"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ivProfileImageView" destination="dRt-gV-alD" id="bMF-Qa-HBW"/>
+                                            <outlet property="lDescriptionLabel" destination="bCo-i0-z0S" id="daD-m9-0TJ"/>
+                                            <outlet property="lIssueTagLabel" destination="ijv-Uc-YcF" id="nbG-44-tSk"/>
+                                            <outlet property="lTitleLabel" destination="alc-no-ehs" id="dW2-87-kdN"/>
+                                            <outlet property="lUsernameLabel" destination="UOi-tq-Qjm" id="wOc-Xm-pPc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -149,6 +159,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YYK-mQ-zid"/>
                     <connections>
+                        <outlet property="tfSearchTextField" destination="12d-2F-Om7" id="Jwe-Aa-KQT"/>
                         <outlet property="tvTableView" destination="9HX-T6-Hha" id="2iF-yg-7AW"/>
                     </connections>
                 </viewController>

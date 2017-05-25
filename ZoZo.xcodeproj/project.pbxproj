@@ -10,6 +10,10 @@
 		47D8FBDAC69FB35062C32CF7 /* Pods_ZoZo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55175C5C37F9530A5D3DB2F4 /* Pods_ZoZo.framework */; };
 		E038317E1ED730CF00913FA5 /* GithubIssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E038317D1ED730CF00913FA5 /* GithubIssueTableViewCell.swift */; };
 		E03831801ED7310900913FA5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E038317F1ED7310900913FA5 /* HomeViewController.swift */; };
+		E03831841ED73F9900913FA5 /* Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03831831ED73F9900913FA5 /* Github.swift */; };
+		E03831871ED743A700913FA5 /* GithubIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03831861ED743A700913FA5 /* GithubIssue.swift */; };
+		E03831891ED7455000913FA5 /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03831881ED7455000913FA5 /* GithubUser.swift */; };
+		E038318B1ED746E200913FA5 /* IssueFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E038318A1ED746E200913FA5 /* IssueFetcher.swift */; };
 		E042E99C1ED71ED800F631B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E042E99B1ED71ED800F631B6 /* AppDelegate.swift */; };
 		E042E9A11ED71ED800F631B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E042E99F1ED71ED800F631B6 /* Main.storyboard */; };
 		E042E9A31ED71ED800F631B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E042E9A21ED71ED800F631B6 /* Assets.xcassets */; };
@@ -22,6 +26,10 @@
 		848C5BF77EFC54BEC6A7E0D9 /* Pods-ZoZo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZoZo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZoZo/Pods-ZoZo.debug.xcconfig"; sourceTree = "<group>"; };
 		E038317D1ED730CF00913FA5 /* GithubIssueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssueTableViewCell.swift; sourceTree = "<group>"; };
 		E038317F1ED7310900913FA5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E03831831ED73F9900913FA5 /* Github.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Github.swift; sourceTree = "<group>"; };
+		E03831861ED743A700913FA5 /* GithubIssue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssue.swift; sourceTree = "<group>"; };
+		E03831881ED7455000913FA5 /* GithubUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubUser.swift; sourceTree = "<group>"; };
+		E038318A1ED746E200913FA5 /* IssueFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueFetcher.swift; sourceTree = "<group>"; };
 		E042E9981ED71ED800F631B6 /* ZoZo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZoZo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E042E99B1ED71ED800F631B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E042E9A01ED71ED800F631B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,6 +75,24 @@
 			name = TableViewCells;
 			sourceTree = "<group>";
 		};
+		E03831821ED73F8100913FA5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E03831831ED73F9900913FA5 /* Github.swift */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		E03831851ED7439500913FA5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E03831861ED743A700913FA5 /* GithubIssue.swift */,
+				E03831881ED7455000913FA5 /* GithubUser.swift */,
+				E038318A1ED746E200913FA5 /* IssueFetcher.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		E042E98F1ED71ED800F631B6 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +114,8 @@
 		E042E99A1ED71ED800F631B6 /* ZoZo */ = {
 			isa = PBXGroup;
 			children = (
+				E03831851ED7439500913FA5 /* Models */,
+				E03831821ED73F8100913FA5 /* Sources */,
 				E038317C1ED730B000913FA5 /* TableViewCells */,
 				E042E99B1ED71ED800F631B6 /* AppDelegate.swift */,
 				E042E99F1ED71ED800F631B6 /* Main.storyboard */,
@@ -223,8 +251,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E038318B1ED746E200913FA5 /* IssueFetcher.swift in Sources */,
 				E038317E1ED730CF00913FA5 /* GithubIssueTableViewCell.swift in Sources */,
+				E03831891ED7455000913FA5 /* GithubUser.swift in Sources */,
+				E03831871ED743A700913FA5 /* GithubIssue.swift in Sources */,
 				E042E99C1ED71ED800F631B6 /* AppDelegate.swift in Sources */,
+				E03831841ED73F9900913FA5 /* Github.swift in Sources */,
 				E03831801ED7310900913FA5 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
