@@ -8,8 +8,8 @@
 
 import Foundation
 import Moya
+import Mapper
 import RxSwift
-import RxCocoa
 import Moya_ModelMapper
 import RxOptional
 import SwiftString3
@@ -21,7 +21,9 @@ struct IssueFetcher {
     func fetchIssues() -> Observable<[GithubIssue]>{
         return pathName.observeOn(MainScheduler.instance).flatMapLatest { path -> Observable<[GithubIssue]> in
             if(path.length > 3 && path.contains("/")){
-                return self.provider.request(Github.issues(repositoryFullName: path)).debug().mapArray(type: GithubIssue.self)
+                return self.provider.request(Github.issues(repositoryFullName: path)).filterSuccessfulStatusCodes().debug().mapArray(type: GithubIssue.self).catchError({ (error) -> Observable<[GithubIssue]> in
+                    return Observable.just([])
+                })
             }else{
                 return Observable.just([])
             }

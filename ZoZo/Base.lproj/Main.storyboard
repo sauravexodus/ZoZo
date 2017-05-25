@@ -115,6 +115,11 @@
                                                         <constraint firstAttribute="trailing" secondItem="ijv-Uc-YcF" secondAttribute="trailing" constant="8" id="x9b-0q-kwa"/>
                                                         <constraint firstItem="ijv-Uc-YcF" firstAttribute="leading" secondItem="qkN-4Y-T55" secondAttribute="leading" constant="8" id="xQ9-4i-Wm6"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -144,10 +149,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6Oi-0k-AQd">
+                                <rect key="frame" x="177" y="180" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9HX-T6-Hha" firstAttribute="top" secondItem="V1n-5F-M18" secondAttribute="bottom" id="3lg-kI-aaZ"/>
+                            <constraint firstItem="6Oi-0k-AQd" firstAttribute="top" secondItem="V1n-5F-M18" secondAttribute="bottom" constant="100" id="7lX-Ux-w9D"/>
+                            <constraint firstItem="6Oi-0k-AQd" firstAttribute="centerX" secondItem="2UW-Tb-hYR" secondAttribute="centerX" id="DpA-58-6RS"/>
                             <constraint firstAttribute="trailing" secondItem="9HX-T6-Hha" secondAttribute="trailing" id="db5-X4-AKi"/>
                             <constraint firstItem="V1n-5F-M18" firstAttribute="top" secondItem="2UW-Tb-hYR" secondAttribute="top" id="gRb-hc-v5A"/>
                             <constraint firstAttribute="trailing" secondItem="V1n-5F-M18" secondAttribute="trailing" id="kXK-K6-avQ"/>
@@ -158,6 +168,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YYK-mQ-zid"/>
                     <connections>
+                        <outlet property="aiProgressIndicator" destination="6Oi-0k-AQd" id="0tt-T0-aV3"/>
                         <outlet property="tfSearchTextField" destination="12d-2F-Om7" id="Jwe-Aa-KQT"/>
                         <outlet property="tvTableView" destination="9HX-T6-Hha" id="2iF-yg-7AW"/>
                     </connections>
