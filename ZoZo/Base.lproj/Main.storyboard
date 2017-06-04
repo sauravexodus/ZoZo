@@ -149,6 +149,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
+                                    <outlet property="dataSource" destination="WhY-Bc-ZNE" id="727-ri-Ufh"/>
                                     <outlet property="delegate" destination="WhY-Bc-ZNE" id="SdG-pf-hmv"/>
                                 </connections>
                             </tableView>

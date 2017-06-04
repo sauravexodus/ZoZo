@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import Moya
 
-class HomeViewController: UIViewController, UITableViewDelegate {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tvTableView: UITableView!
     @IBOutlet var tfSearchTextField: UITextField!
@@ -24,6 +24,7 @@ class HomeViewController: UIViewController, UITableViewDelegate {
     }
     var githubIssuesFetcher : IssueFetcher!
     var issues = Array<GithubIssue>()
+    var refreshControl = UIRefreshControl()
 
     //MARK:- Lifecycle methods
     
@@ -32,6 +33,7 @@ class HomeViewController: UIViewController, UITableViewDelegate {
 
         self.tvTableView.estimatedRowHeight = 100
         self.tvTableView.rowHeight = UITableViewAutomaticDimension
+        self.tvTableView.addSubview(refreshControl)
         self.setupRx()
     }
     
@@ -57,32 +59,62 @@ class HomeViewController: UIViewController, UITableViewDelegate {
                 self.vErrorView.isHidden = true
             }
             self.issues = issues
+            self.tvTableView.reloadData()
         }, onError: { (error) in
             self.vErrorView.isHidden = false
         }, onCompleted: {
-
         }, onSubscribe: {
             
         }, onSubscribed: { 
-
         }, onDispose: {
-            
-        }).bind(to: self.tvTableView.rx.items){ tableView, row, item in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "GithubIssueTableViewCell") as! GithubIssueTableViewCell
-            cell.configure(with: item)
-            return cell
-        }.addDisposableTo(self.disposeBag)
+        }).subscribe().addDisposableTo(self.disposeBag)
         
         self.tvTableView.rx.itemSelected.subscribe(onNext: { indexPath in
             if(self.tfSearchTextField.isFirstResponder){
                 self.view.endEditing(true)
             }
         }).addDisposableTo(self.disposeBag)
+        
+        self.refreshControl.rx.controlEvent(UIControlEvents.valueChanged).flatMapLatest { [unowned self] _ -> Observable<[GithubIssue]> in
+            return self.githubIssuesFetcher.fetchIssues().do(onNext: { (issues) in
+                if(issues.count == 0){
+                    self.vErrorView.isHidden = false
+                }else{
+                    self.vErrorView.isHidden = true
+                }
+                self.issues = issues
+                self.refreshControl.endRefreshing()
+                self.tvTableView.reloadData()
+            }, onError: { (error) in
+                self.vErrorView.isHidden = false
+            }, onCompleted: {
+                
+            }, onSubscribe: {
+                
+            }, onSubscribed: {
+                
+            }, onDispose: {
+                
+            })
+        }.subscribe().addDisposableTo(self.disposeBag)
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let issue = self.issues[indexPath.row]
         performSegue(withIdentifier: "ShowDetails", sender: issue)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = self.issues[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GithubIssueTableViewCell") as! GithubIssueTableViewCell
+        cell.configure(with: item)
+        return cell
+
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.issues.count
     }
 
 }
