@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import Moya
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet var tvTableView: UITableView!
     @IBOutlet var tfSearchTextField: UITextField!
@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
         return tfSearchTextField.rx.text.orEmpty.debounce(0.5, scheduler: MainScheduler.instance).distinctUntilChanged()
     }
     var githubIssuesFetcher : IssueFetcher!
+    var issues = Array<GithubIssue>()
 
     //MARK:- Lifecycle methods
     
@@ -32,6 +33,14 @@ class HomeViewController: UIViewController {
         self.tvTableView.estimatedRowHeight = 100
         self.tvTableView.rowHeight = UITableViewAutomaticDimension
         self.setupRx()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "ShowDetails"){
+            let issueDetailsViewController = segue.destination as! IssueDetailViewController
+            issueDetailsViewController.githubIssue = sender as! GithubIssue
+            issueDetailsViewController.repoName = self.tfSearchTextField.text
+        }
     }
     
     //MARK:- Instance methods
@@ -47,6 +56,7 @@ class HomeViewController: UIViewController {
             }else{
                 self.vErrorView.isHidden = true
             }
+            self.issues = issues
         }, onError: { (error) in
             self.vErrorView.isHidden = false
         }, onCompleted: {
@@ -68,6 +78,11 @@ class HomeViewController: UIViewController {
                 self.view.endEditing(true)
             }
         }).addDisposableTo(self.disposeBag)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let issue = self.issues[indexPath.row]
+        performSegue(withIdentifier: "ShowDetails", sender: issue)
     }
 
 }

@@ -18,6 +18,8 @@
 		E042E9A11ED71ED800F631B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E042E99F1ED71ED800F631B6 /* Main.storyboard */; };
 		E042E9A31ED71ED800F631B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E042E9A21ED71ED800F631B6 /* Assets.xcassets */; };
 		E042E9A61ED71ED800F631B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E042E9A41ED71ED800F631B6 /* LaunchScreen.storyboard */; };
+		E04B5B991EE40FBF002203C8 /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B5B981EE40FBF002203C8 /* IssueDetailViewController.swift */; };
+		E0E41F8D1EE41E6C00E4A7A9 /* IssueComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E41F8C1EE41E6C00E4A7A9 /* IssueComment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		E042E9A21ED71ED800F631B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E042E9A51ED71ED800F631B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E042E9A71ED71ED800F631B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E04B5B981EE40FBF002203C8 /* IssueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
+		E0E41F8C1EE41E6C00E4A7A9 /* IssueComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueComment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 				E03831861ED743A700913FA5 /* GithubIssue.swift */,
 				E03831881ED7455000913FA5 /* GithubUser.swift */,
 				E038318A1ED746E200913FA5 /* IssueFetcher.swift */,
+				E0E41F8C1EE41E6C00E4A7A9 /* IssueComment.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 		E042E99A1ED71ED800F631B6 /* ZoZo */ = {
 			isa = PBXGroup;
 			children = (
+				E04B5B971EE40FA0002203C8 /* ViewControllers */,
 				E03831851ED7439500913FA5 /* Models */,
 				E03831821ED73F8100913FA5 /* Sources */,
 				E038317C1ED730B000913FA5 /* TableViewCells */,
@@ -122,9 +128,17 @@
 				E042E9A21ED71ED800F631B6 /* Assets.xcassets */,
 				E042E9A41ED71ED800F631B6 /* LaunchScreen.storyboard */,
 				E042E9A71ED71ED800F631B6 /* Info.plist */,
-				E038317F1ED7310900913FA5 /* HomeViewController.swift */,
 			);
 			path = ZoZo;
+			sourceTree = "<group>";
+		};
+		E04B5B971EE40FA0002203C8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E038317F1ED7310900913FA5 /* HomeViewController.swift */,
+				E04B5B981EE40FBF002203C8 /* IssueDetailViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,8 +268,10 @@
 				E038318B1ED746E200913FA5 /* IssueFetcher.swift in Sources */,
 				E038317E1ED730CF00913FA5 /* GithubIssueTableViewCell.swift in Sources */,
 				E03831891ED7455000913FA5 /* GithubUser.swift in Sources */,
+				E0E41F8D1EE41E6C00E4A7A9 /* IssueComment.swift in Sources */,
 				E03831871ED743A700913FA5 /* GithubIssue.swift in Sources */,
 				E042E99C1ED71ED800F631B6 /* AppDelegate.swift in Sources */,
+				E04B5B991EE40FBF002203C8 /* IssueDetailViewController.swift in Sources */,
 				E03831841ED73F9900913FA5 /* Github.swift in Sources */,
 				E03831801ED7310900913FA5 /* HomeViewController.swift in Sources */,
 			);
