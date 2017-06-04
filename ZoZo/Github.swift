@@ -22,7 +22,7 @@ enum Github {
 
 extension Github: TargetType {
     var baseURL: URL { return URL(string: "https://api.github.com")! }
-    var apiKey : String { return "1e743ba8db886c0a357c96650351cffd25e11ef3" }
+    var apiKey : String { return "" }
     var path: String {
         switch self {
         case .issues(let repositoryName):
